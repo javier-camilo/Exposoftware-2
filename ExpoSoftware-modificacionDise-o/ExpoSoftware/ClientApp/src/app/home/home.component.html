@@ -1,0 +1,63 @@
+<div class="container-fluid">
+
+    <ngb-carousel >
+      <ng-template *ngFor="let item of noticias" ngbSlide>
+        <div class="picsum-img-wrapper">
+          <img src="{{item.img}}" alt="Random first slide" [routerLink]="item.route" >
+        </div>
+        <div class="carousel-caption" >
+          <h3 style="font-size: 30px; background-color: black; opacity: 0.7; margin-left: 90px; margin-right: 90px;" >{{item.name}}</h3>
+          <p class="texto_nuevo">{{item.desc}}</p>
+        </div>
+      </ng-template>
+    </ngb-carousel>
+  
+
+    <blockquote class="blockquote text-center" style="margin-top: 10%;">
+      <p class="mb-0" class="display-3 colorLetras style">Descripcion General</p>
+      <footer class="blockquote-footer">mision, vision, lema</footer>
+
+    </blockquote>
+
+
+
+    <div class="card-deck">
+      <div class="card">
+        <img src="../../assets/descarga.png" width="80px"  height="200px" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">mision</h5>
+          <p class="card-text text-justify">Formar Ingenieros de Sistemas, con amplios conocimientos en la gestión de las tecnologías de la información y la comunicación con énfasis en el desarrollo de software, a través de una formación integral basada en el actuar profesional, investigativo, ético, social, moral y tecnológico; con capacidad de responder a los constantes cambios y retos que ofrece el entorno, permitiéndole alcanzar su propia realización.</p>
+        </div>
+        <div class="card-footer">
+          <small class="text-muted">Last updated 3 mins ago</small>
+        </div>
+      </div>
+      <div class="card">
+        <img src="../../assets/vision.png"  width="80px"  height="200px"  class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">vision</h5>
+          <p class="card-text text-justify">El programa de Ingeniería de Sistemas proyecta una formación con calidad enmarcada en el conocimiento, desarrollo, investigación, innovación y nuevas tecnologías de la información y comunicación; acorde a los cambios tecnológicos y enfoque hacia la integración y desarrollo de proyectos que generen impacto social en el contexto regional, nacional e internacional</p>
+        </div>
+        <div class="card-footer">
+          <small class="text-muted">Last updated 3 mins ago</small>
+        </div>
+      </div>
+      <div class="card">
+        <img src="../../assets/lema.png" width="80px"  height="200px"  class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">lema</h5>
+          <p class="card-text">hacia el futuro</p>
+        </div>
+        <div class="card-footer">
+          <small class="text-muted">Last updated 3 mins ago</small>
+        </div>
+      </div>
+    </div>
+
+
+
+
+</div>
+
+ 
+

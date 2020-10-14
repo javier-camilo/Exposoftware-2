@@ -1,0 +1,244 @@
+
+<mat-horizontal-stepper [linear]="isLinear" #stepper>
+
+  <mat-step [stepControl]="firstFormGroup">
+
+    <form [formGroup]="firstFormGroup">
+
+      <ng-template matStepLabel>Datos del docente</ng-template>
+
+      <div class="row">
+
+        <div class="col-sm">
+          
+        <mat-form-field>
+
+          <mat-label>Identifiacion del docente</mat-label>
+          <input matInput formControlName="identificacion" [(ngModel)]="busquedaDocente" required>
+          
+        </mat-form-field>
+
+       
+        <mat-form-field>
+          <mat-label>Nombre Docente</mat-label>
+          <input matInput  formControlName="nombre" required>
+        </mat-form-field>
+       
+        
+        
+
+
+    
+            <mat-form-field>
+              <mat-label>especialidad</mat-label>
+              <input matInput formControlName="descripcion" required>
+            </mat-form-field>
+
+            <mat-form-field>
+              <mat-label>Asignaturas</mat-label>
+              <mat-select formControlName="asignaturas">
+                <mat-option *ngFor="let asignatura of asignaturas" [value]="asignatura.codigoAsignatura" >
+                  {{asignatura.nombreAsignatura}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+
+            
+        <button  (click)="buscarDocente()"  class="btn btn-light" style="margin-left: 15px;">consultar</button>
+
+
+        </div>
+
+
+
+
+      </div>
+
+  
+
+
+      <div style="margin-top: 20px;">
+        <button mat-button matStepperNext >Siguiente</button>
+      </div>
+
+    </form>
+
+
+  </mat-step>
+
+
+
+  <mat-step [stepControl]="secondFormGroup">
+
+    <form [formGroup]="secondFormGroup">
+
+      <ng-template matStepLabel>Datos del Estudiante</ng-template>
+
+
+    <div class="row">
+
+      <div class="col-sm">
+          
+        <mat-form-field>
+
+          <mat-label>Identifiacion del Estudiante</mat-label>
+          <input matInput formControlName="identificacion" [(ngModel)]="busquedaEstudiante">
+
+        </mat-form-field>
+
+        
+       
+        <mat-form-field>
+          <mat-label>Nombre completo</mat-label>
+          <input matInput formControlName="nombre" required>
+        </mat-form-field>
+        
+
+        
+        <mat-form-field>
+          <mat-label>correo</mat-label>
+          <input matInput formControlName="correo" required>
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>celular</mat-label>
+          <input matInput formControlName="celular" required>
+        </mat-form-field>
+       
+        
+          <mat-form-field>
+            <mat-label>Asignaturas</mat-label>
+            <mat-select formControlName="asignatura">
+              <mat-option *ngFor="let asignatura of asignaturas" [value]="asignatura.codigoAsignatura" >
+                {{asignatura.nombreAsignatura}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+
+
+          <mat-form-field style="margin-right: 10PX;">
+            <mat-label>Semestre</mat-label>
+            <input matInput formControlName="semestre" required type="number">
+          </mat-form-field>
+
+          
+          
+        <button  (click)="buscarEstudiante()"  class="btn btn-light">consultar</button>
+
+
+        
+      </div>
+
+        
+
+
+    </div>
+
+
+
+
+      <div style="margin-top: 20px;">
+        <button mat-button matStepperPrevious>Regresar</button>
+        <button mat-button matStepperNext style="margin-left: 80%;">Siguiente</button>
+      </div>
+
+
+    </form>
+
+  </mat-step>
+
+
+
+  <mat-step [stepControl]="treeFormgroup">
+
+    <form [formGroup]="treeFormgroup">
+
+      <ng-template matStepLabel>Datos del Proyecto</ng-template>
+
+      <div class="row">
+
+
+        <div class="col-sm">
+              
+            <mat-form-field>
+
+              <mat-label>referencia </mat-label>
+              <input matInput formControlName="idProyecto"  required>
+
+            </mat-form-field>
+
+          
+            <mat-form-field>
+              <mat-label>titulo</mat-label>
+              <input matInput  formControlName="titulo" required>
+            </mat-form-field>
+
+
+            
+            <mat-form-field>
+              <mat-label>metodologia</mat-label>
+              <input matInput formControlName="metodologia" required>
+            </mat-form-field>
+
+            
+            <mat-form-field>
+              <mat-label>resumen</mat-label>
+              <input matInput formControlName="resumen" required>
+            </mat-form-field>
+      
+        
+        </div>
+
+
+  
+
+      </div>
+
+
+
+
+      <div style="margin-top: 20px;">
+
+        <button mat-button matStepperPrevious>Regresar</button>
+        <button mat-button matStepperNext style="margin-left: 80%;">Siguiente</button>
+
+
+      </div>
+
+
+    </form>
+
+  </mat-step>
+
+
+
+
+
+  <mat-step>
+
+    <ng-template matStepLabel>Done</ng-template>
+    
+
+    <div class="text-center">
+      <h1>Registro Finalizado</h1>
+    </div>
+
+    
+      <div style="margin-bottom: 50px; margin-top: 50px;" class="text-center" >
+
+        <button  (click)="onSubmit()"  class="btn btn-light">Registrar</button>
+
+
+      </div>
+
+
+    <div>
+      <button mat-button matStepperPrevious>Regresar</button>
+      <button mat-button (click)="stepper.reset()" style="margin-left: 80%;">resetear</button>
+    </div>
+  </mat-step>
+
+ 
+
+
+</mat-horizontal-stepper>

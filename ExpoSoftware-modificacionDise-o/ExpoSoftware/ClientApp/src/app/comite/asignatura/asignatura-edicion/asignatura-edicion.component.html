@@ -1,0 +1,86 @@
+
+<div class="container">
+
+    <blockquote class="blockquote text-center">
+      <p class="mb-0" class="display-3 colorLetras">Edicion De Asignaturas</p>
+      <footer class="blockquote-footer">Actualiza o eliminar todo lo referente a los datos de la asignatura</footer>
+    </blockquote>
+  
+  
+  <form>
+
+          
+      <div class="input-group input-group-sm mb-3">
+  
+          <div class="input-group mb-3 input divflex" style="margin-left: 40%;">
+  
+              <div class="text-center">
+                <span class="input-group-text" id="inputGroup-sizing-default">{{asignatura.codigoAsignatura}}</span>
+              </div>
+  
+              
+             <button mat-stroked-button style="border-color: #339240; "  (click)="buscar()"> <mat-icon>search</mat-icon> </button>
+  
+            </div>
+  
+            
+          <div class="input-group mb-3 input">
+
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="inputGroup-sizing-default">Nombre de la asignatura</span>
+            </div>
+
+
+            <input type="text" name="nombreAsignatura" [(ngModel)]="asignatura.nombreAsignatura" class="form-control" />
+          
+          </div>
+
+        
+  
+          <div class="input-group mb-3 input">
+  
+              <div class="input-group-prepend">
+                <label class="input-group-text" for="area">Areas</label>
+              </div>
+  
+              <select class="custom-select" id="areaA" name="areaAsignatura" class="form-control" [(ngModel)]="asignatura.areaAsignatura" >
+                <option selected>Selecionar...</option>
+                <option *ngFor="let item of areas"  value={{item.codigoArea}}>{{item.nombreArea}}</option>
+              </select>
+  
+      
+  
+          </div>
+  
+      
+                  
+          <div class="input-group mb-3 input">
+
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="inputGroup-sizing-default">Descripcion de la asignatura</span>
+            </div>
+
+
+            <input type="text" name="descripcionAsignatura"  [(ngModel)]="asignatura.descripcionAsignatura" class="form-control" />
+          
+          </div>
+
+
+          
+       
+      </div>
+  
+          <div class="text-center">
+  
+             <button mat-stroked-button style="border-color: #339240; margin-right: 20px; margin-top: 20px;" (click)="confirmar('1')" > Editar </button>
+  
+             <button mat-stroked-button style="border-color: #ff0000; " (click)="confirmar('2')" >Eliminar </button>
+  
+       </div>
+  
+              
+      
+  </form>
+         
+  </div>
+      

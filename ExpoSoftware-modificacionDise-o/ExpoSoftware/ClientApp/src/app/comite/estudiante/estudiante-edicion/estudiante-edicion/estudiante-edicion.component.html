@@ -1,0 +1,98 @@
+
+<div class="container">
+
+    <blockquote class="blockquote text-center">
+      <p class="mb-0" class="display-3 colorLetras">Edicion de estudiante</p>
+      <footer class="blockquote-footer">Actualiza o eliminar todo lo referente a los datos del estudiante</footer>
+    </blockquote>
+  
+  
+  <form>
+
+          
+      <div class="input-group input-group-sm mb-3">
+  
+          <div class="input-group mb-3 input divflex" style="margin-left: 40%;">
+  
+              <div class="text-center">
+                <span class="input-group-text" id="inputGroup-sizing-default">{{estudiante.identificacion}}</span>
+              </div>
+  
+              
+            
+  
+            </div>
+  
+            
+          <div class="input-group mb-3 input">
+
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="inputGroup-sizing-default">Nombre del estudiante</span>
+            </div>
+
+
+            <input type="text" name="nombreAsignatura" [(ngModel)]="estudiante.nombre" class="form-control" />
+          
+          </div>
+
+        
+  
+          <div class="input-group mb-3 input">
+  
+              <div class="input-group-prepend">
+                <label class="input-group-text" for="asignaturas">Asignaturas</label>
+              </div>
+  
+              <select class="custom-select" id="areaA" name="asignatura" class="form-control" [(ngModel)]="estudiante.asignatura" >
+                <option selected>Seleccionar</option>
+                <option *ngFor="let item of asignaturas"  value={{item.codigoAsignatura}}>{{item.nombreAsignatura}}</option>
+              </select>
+  
+      
+  
+          </div>
+  
+      
+                  
+          <div class="input-group mb-3 input">
+
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="inputGroup-sizing-default">Correo</span>
+            </div>
+
+
+            <input type="text" name="correo"  [(ngModel)]="estudiante.correo" class="form-control" />
+          
+          </div>
+
+          <div class="input-group mb-3 input">
+
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="inputGroup-sizing-default">Celular</span>
+            </div>
+
+
+            <input type="text" name="celular"  [(ngModel)]="estudiante.celular" class="form-control" />
+          
+          </div>
+
+
+          
+       
+      </div>
+  
+          <div class="text-center">
+  
+             <button mat-stroked-button style="border-color: #339240; margin-right: 20px; margin-top: 20px;" (click)="confirmar('1')" > Editar </button>
+  
+             <button mat-stroked-button style="border-color: #ff0000; " (click)="confirmar('2')" >Eliminar </button>
+  
+       </div>
+  
+              
+      
+  </form>
+         
+  </div>
+
+

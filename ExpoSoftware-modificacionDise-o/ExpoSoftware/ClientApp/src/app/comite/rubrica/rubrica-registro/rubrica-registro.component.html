@@ -1,0 +1,68 @@
+       
+<div *ngIf="areas && areas.length">
+
+    <blockquote class="blockquote text-center" style="margin-bottom: 50px;">
+      <p class="mb-0" class="display-3 colorLetras">Rubrica Registro</p>
+      <footer class="blockquote-footer">Registro de las rubricas para cada area</footer>
+    </blockquote>
+
+</div>
+
+
+<div class="row justify-content-md-center" *ngIf="areas && areas.length">
+
+     <div class="col-md-auto">
+
+      <form [formGroup]="rubricaForm" (submit)="confirmar()" class="text-center">
+
+        <mat-form-field appearance="legacy" class="example-full-width">
+          <mat-label>
+            Codigo rubrica
+          </mat-label>
+          <input matInput formControlName="idRubrica" required>
+          <mat-error *ngIf="rubricaForm.controls.idRubrica.touched && rubricaForm.controls.idRubrica.invalid">
+            <span *ngIf="rubricaForm.controls.idRubrica.errors.required">El Codigo de la rubrica es requerido </span>
+            <span *ngIf="rubricaForm.controls.idRubrica.errors.maxlength">El solo debe ser maximo 4 caracteres</span>
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field  appearance="legacy" class="example-full-width">
+          <mat-label>
+            Titulo rubrica
+          </mat-label>
+          <input matInput formControlName="titulo" required>
+          <mat-error *ngIf="rubricaForm.controls.titulo.touched && rubricaForm.controls.titulo.invalid">
+            <span *ngIf="rubricaForm.controls.titulo.errors.required">El nombre es requerido </span>
+          </mat-error>
+        </mat-form-field>
+
+         
+        <mat-form-field class="example-full-width">
+
+          <mat-label>Areas</mat-label>
+          <mat-select formControlName="codigoArea">
+            <mat-option *ngFor="let area of areas" [value]="area.codigoArea" >
+              {{area.nombreArea}}
+            </mat-option>
+          </mat-select>
+
+          <mat-error *ngIf="rubricaForm.controls.codigoArea.touched && rubricaForm.controls.codigoArea.invalid">
+            <span *ngIf="rubricaForm.controls.codigoArea.errors.required">Debe seleccionar </span>
+          </mat-error>
+
+        </mat-form-field>
+
+
+        <div class="text-center">
+           
+          <button mat-stroked-button class="botton" type="submit" style="margin-right: 20px;" [disabled]="rubricaForm.invalid">Registrar</button>
+          <button mat-stroked-button class="botton" type="reset">Limpiar</button>
+
+        </div>
+
+      </form>
+
+    </div>
+
+</div>
+       

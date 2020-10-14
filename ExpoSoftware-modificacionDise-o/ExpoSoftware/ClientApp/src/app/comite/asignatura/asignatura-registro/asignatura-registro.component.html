@@ -1,0 +1,114 @@
+
+<div class="container" *ngIf="areas.length>0">
+
+  <blockquote class="blockquote text-center">
+    <p class="mb-0" class="display-3 colorLetras">Registro de asignaturas</p>
+    <footer class="blockquote-footer">Guardar todo lo referente a los datos de la asignatura</footer>
+  </blockquote>
+
+
+<form [formGroup]="formGroup">
+
+
+      
+          <div class="input-group input-group-sm mb-3">
+
+              <div class="input-group mb-3 input divflex" >
+
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroup-sizing-default">Codigo de la asignatura</span>
+                  </div>
+
+                  <input type="text" placeholder="Digite el codigo" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" formControlName="codigoAsignatura" [ngClass]="{ 'is-invalid': control.codigoAsignatura.errors && control.codigoAsignatura.touched }" > 
+
+                  
+                <button mat-stroked-button style="border-color: #339240; "  (click)="buscar()"> <mat-icon>search</mat-icon> </button>
+
+                  <div *ngIf="control.codigoAsignatura.errors" class="invalid-feedback">
+                    
+                    <div *ngIf="control.codigoAsignatura.errors.required">Debe digitar un valor para la cedula</div>
+                    <div *ngIf="control.codigoAsignatura.errors.maxlength">No se puede digitar mas de 10 caracteres</div>
+
+                  </div>
+
+              
+                </div>
+
+
+              <div class="input-group mb-3 input">
+
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" id="inputGroup-sizing-default">Nombre de la asignatura</span>
+                    </div>
+                    <input type="text" placeholder="Digite el nombre" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default"  class="form-control"  formControlName="nombreAsignatura" [ngClass]="{ 'is-invalid': control.nombreAsignatura.errors && control.nombreAsignatura.touched }">
+                    
+                  
+                    <div *ngIf="control.nombreAsignatura.errors" class="invalid-feedback">
+                      
+                      <div *ngIf="control.nombreAsignatura.errors.required">Debe digitar un valor para el nombre</div>
+          
+                    </div>
+
+                </div>
+                
+        
+
+
+        
+
+            <div class="input-group mb-3 input">
+
+                <div class="input-group-prepend">
+                  <label class="input-group-text" for="area">Areas</label>
+                </div>
+
+                <select class="custom-select" id="areaA" name="areaAsignatura"  formControlName="areaAsignatura" class="form-control" [ngClass]="{ 'is-invalid': control.areaAsignatura.errors && control.areaAsignatura.touched }">
+                  <option selected>Selecionar...</option>
+
+                  <option *ngFor="let item of areas"  value={{item.codigoArea}}>{{item.nombreArea}}</option>
+                
+                </select>
+
+                <div *ngIf="control.areaAsignatura.errors" class="invalid-feedback">
+                    
+                  <div *ngIf="control.areaAsignatura.errors.validArea" style="margin-right: 59%;" >Debe seleccionar un valor</div>
+      
+                </div>
+
+            </div>
+
+
+              <div class="input-group mb-3 input">
+
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroup-sizing-default">Descripción de la asignatura</span>
+                  </div>
+                  <input type="text"  placeholder="Digite la descripción" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" class="form-control"  formControlName="descripcionAsignatura" [ngClass]="{ 'is-invalid': control.descripcionAsignatura.errors && control.descripcionAsignatura.touched }">
+
+                  <div *ngIf="control.descripcionAsignatura.errors" class="invalid-feedback">
+                      
+                    <div *ngIf="control.descripcionAsignatura.errors.required">Debe digitar un valor </div>
+        
+                  </div>
+
+              </div>
+
+        </div>
+      
+     
+    
+
+      <div class="text-center">
+
+           <button mat-stroked-button style="border-color: #339240; margin-right: 20px; margin-top: 20px;"  (click)="onSubmit()" [disabled]="formGroup.invalid" >Registrar</button>
+
+           <button mat-stroked-button style="border-color: #339240; " type="reset" >Limpiar</button>
+
+     </div>
+
+
+
+</form>
+       
+</div>
+    

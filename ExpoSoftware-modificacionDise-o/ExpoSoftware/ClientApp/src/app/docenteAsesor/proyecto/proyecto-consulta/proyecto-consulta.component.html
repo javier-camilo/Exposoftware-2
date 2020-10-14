@@ -1,0 +1,282 @@
+<div class="container">
+    <div class="row">
+
+        <div class="col-md">
+
+                <blockquote class="blockquote " style="margin-bottom: 80px;">
+
+                    <p class="mb-0" class="display-3 colorLetras">Consulta Solicitudes de proyecto</p>
+                        
+                </blockquote>
+
+
+
+                    <div class="table-responsive">
+
+
+                        <table class="table table-light  table-hover" *ngIf="proyectos && proyectos.length">
+
+                            <thead class="thead-dark">
+                            <tr>
+
+                                <th scope="col">#</th>
+                                <th scope="col">Referencia del proyecto</th>
+                                <th scope="col">Titulo</th>
+                                <th scope="col">Resumen</th>
+                                <th scope="col">Estado</th>
+                                <th scope="col">Mas Detalles</th>
+
+                            </tr>
+                            </thead>
+
+
+                            <tbody>
+                    
+                            <tr *ngFor="let proyecto of proyectos  ; index as i ">
+                                <th scope="row">{{ i + 1 }}</th>
+                                <td>{{ proyecto.idProyecto }} </td>
+                                <td>{{ proyecto.titulo}}</td>
+                                <td>{{proyecto.resumen}}</td>
+                                <td>{{proyecto.estado}}</td>
+                                <th><a routerLink="#" (click)="consultar(proyecto.idProyecto)">ver</a></th>
+                            </tr>
+
+                            </tbody>
+                    
+                    
+                        </table>
+                    </div>
+
+        </div>
+
+    
+
+    <div class="w-100" style="margin-top: 60px;"> <mat-divider></mat-divider> </div>
+
+        <div class="col">
+
+
+            <mat-horizontal-stepper [linear]="isLinear" #stepper>
+
+                <mat-step>
+              
+              
+                    <ng-template matStepLabel>Datos del estudiante</ng-template>
+              
+                    <div class="row" style="margin-top: 20px;">
+              
+                      <div class="col-sm">
+
+                        
+                        <p><mark>Identificacion Estudiante:   </mark>{{proyecto.identificacionEstudiante}}</p>
+
+
+                      </div>
+              
+                      <div class="col-sm">
+                        
+              
+                      </div>
+              
+              
+                    </div>
+              
+              
+              
+                    <div class="margen">
+                      <button mat-button matStepperNext>Siguiente</button>
+                    </div>
+              
+              
+              
+                </mat-step>
+              
+              
+              
+                <mat-step>
+              
+                    <ng-template matStepLabel>Datos del proyecto</ng-template>
+              
+
+                    <div class="row" style="margin-top: 40px;" >
+
+              
+                        <div class="col-sm" >
+
+                          <p><mark>Referencia Proyecto:   </mark>{{proyecto.idProyecto}}</p>
+
+                          <br>
+
+                          <p><mark>Titulo proyecto:   </mark>{{proyecto.titulo}}</p>
+
+
+                        </div>
+                
+
+                        <div class="col-sm">
+
+
+                          <p><mark>Resumen proyecto   </mark>{{proyecto.resumen}}</p>
+                          
+                          <br>
+
+
+                          <p><mark>Resumen metodologia usada  </mark>{{proyecto.metodologia}}</p>
+
+
+                        </div>
+                
+                
+                      </div>
+                
+              
+                    <div class="margen">
+                      <button mat-button matStepperPrevious>Regresar</button>
+                      <button mat-button matStepperNext>Siguiente</button>
+                    </div>
+              
+              
+                </mat-step>
+
+                
+                <mat-step>
+              
+                  <ng-template matStepLabel>Datos del Docente</ng-template>
+            
+
+                  <div class="row" style="margin-top: 40px;" >
+
+            
+                      <div class="col-sm" >
+
+                        
+                        <p><mark>Docente identificacion   </mark>{{docente.identificacion}}</p>
+
+                        <br>
+
+                        <p><mark>Nombre del docente   </mark>{{docente.nombre}}</p>
+
+
+                      </div>
+              
+
+                      <div class="col-sm">
+
+                        <p><mark>Especialidad   </mark>{{docente.descripcion}}</p>
+
+                        <br>
+
+                        <p><mark>Asignatura del docente   </mark>{{docente.asignaturas}}</p>
+
+
+                      </div>
+              
+              
+                    </div>
+              
+            
+                  <div class="margen">
+                    <button mat-button matStepperPrevious>Regresar</button>
+                    <button mat-button matStepperNext>Siguiente</button>
+                  </div>
+            
+            
+              </mat-step>
+
+
+
+              <mat-step>
+              
+                <ng-template matStepLabel>Datos Asignatura</ng-template>
+          
+
+                <div class="row" style="margin-top: 40px;" >
+
+          
+                    <div class="col-sm" >
+
+
+                      
+                      <p><mark>Referencia Asignatura   </mark>{{asignatura.codigoAsignatura}}</p>
+
+                      <br>
+
+                      
+                      <p><mark>Nombre de la Asignatura   </mark>{{asignatura.nombreAsignatura}}</p>
+
+
+                    </div>
+            
+
+                    <div class="col-sm">
+
+                      
+                      <p><mark>Asignatura Descripcion  </mark>{{asignatura.descripcionAsignatura}}</p>
+
+                      <br>
+
+                      
+                      <p><mark>Area de la asignatura   </mark>{{asignatura.areaAsignatura}}</p>
+
+
+                    </div>
+            
+            
+                  </div>
+            
+          
+                <div class="margen">
+                  <button mat-button matStepperPrevious>Regresar</button>
+                  <button mat-button matStepperNext>Siguiente</button>
+                </div>
+          
+          
+            </mat-step>
+            
+              
+                <mat-step>
+
+                  <ng-template matStepLabel>Asignar Estado</ng-template>
+
+
+                  <div class="input-group mb-3 input" style="margin-top: 50px ;">
+
+                    <div class="input-group-prepend">
+                      <label class="input-group-text" for="area">Estado Proyecto </label>
+                    </div>
+        
+                    <select class="custom-select" id="areaA" name="areaAsignatura" [(ngModel)]="proyecto.estado " >
+                      
+                      <option selected>Revision</option>
+                      <option value="Modificar">Modificar revision</option>
+                      <option value="Rechazado">Rechazado</option>
+                      <option value="Aprobado">Aprobado</option>
+                    
+                    </select>
+
+                    </div>
+
+
+
+                  <div class="margen">
+
+                    <button mat-stroked-button style="border-color: #339240; margin-right: 20px; margin-top: 20px;"  (click)="modificarEstado()" >Registrar</button>
+
+                    <button mat-button (click)="stepper.reset()">resetear</button>
+                    
+                  </div>
+
+                </mat-step>
+              
+               
+              
+              
+              </mat-horizontal-stepper>
+   
+
+        </div>
+
+
+    </div>
+
+</div>

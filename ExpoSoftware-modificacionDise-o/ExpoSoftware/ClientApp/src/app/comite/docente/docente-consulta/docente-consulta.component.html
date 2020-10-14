@@ -1,0 +1,53 @@
+<blockquote class="blockquote text-center">
+    <p class="mb-0" class="display-3 colorLetras">Consulta De docentes</p>
+  </blockquote>
+
+
+
+  <div class="col-6" style="margin-left: 20%; margin-right: 20%; margin-top: 40px; margin-bottom: 40px;" class="text-center">
+      
+    <input [(ngModel)]="searchText" type="text" class="form-control" placeholder="Texto de filtro por nombre o codigo" >
+      
+  </div>
+  
+<hr>
+
+
+
+
+<table class="table table-striped" *ngIf="docentes && docentes.length && asignatura">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Identificacion</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Especialidad</th>
+      <th scope="col">Tipo</th>
+      <th scope="col">Codigo de la asignatura</th>
+      <th scope="col">Asignatura</th>
+      
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr *ngFor="let docente of docentes  | filtroDocente:searchText; index as i ">
+
+      <th scope="row">{{ i + 1 }}</th>
+      <td>{{ docente.identificacion}} </td>
+      <td>{{ docente.nombre }}</td>
+      <td>{{ docente.descripcion }}</td>
+      <td>{{ docente.tipo }}</td>
+      <td>{{ docente.asignaturas}}</td>
+      <div *ngFor="let itemUno of asignatura ">
+        <td *ngIf="itemUno.codigoAsignatura===docente.asignaturas">{{itemUno.nombreAsignatura}}</td>
+      </div>
+      <td (click)="confirmar(docente.identificacion)"><a routerLink="/docenteConsulta"><mat-icon>delete</mat-icon></a></td>
+
+    </tr>
+
+  </tbody>
+
+</table>
+
+
+

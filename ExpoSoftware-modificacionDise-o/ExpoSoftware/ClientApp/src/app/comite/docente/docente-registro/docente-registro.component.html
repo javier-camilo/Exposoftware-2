@@ -1,0 +1,143 @@
+<div class="container">
+
+
+<div *ngIf="asignaturas.length==0">
+
+  
+</div>
+
+<div  *ngIf="asignaturas && asignaturas.length"> 
+
+
+
+  <blockquote class="blockquote text-center">
+    <p class="mb-0" class="display-3 colorLetras">Registro de Docente</p>
+    <footer class="blockquote-footer">Guardar todo lo referente a los datos del docente</footer>
+  </blockquote>
+
+  <form [formGroup]="formGroup">
+
+    <div class="input-group input-group-sm mb-3">
+
+        <div class="input-group mb-3 input divflex" style="margin-top: 5%;" >
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="basic-addon1">Identificacion</span>
+            </div>
+            
+            <input type="text" class="form-control" placeholder="digite la identificacion" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" formControlName="identificacion" [ngClass]="{'is-invalid': control.identificacion.errors && control.identificacion.touched }">
+            <button mat-stroked-button style="border-color: #339240; "  (click)="buscar()"> <mat-icon>search</mat-icon> </button>
+         
+         
+          <div *ngIf="control.identificacion.errors" class="invalid-feedback" style="margin-left: 12%;">
+          
+            <div *ngIf="control.identificacion.errors.required"> Debe digitar una identificacion para el docente </div>
+          
+            <div *ngIf="control.identificacion.errors.maxlength"> No se puede digitar más de diez(10) caracteres </div>
+
+         </div>
+         
+         
+          </div>
+
+          
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="basic-addon1">Nombre del docente</span>
+            </div>
+            <input type="text" class="form-control" placeholder="digite el nombre del docente" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" formControlName = "nombre" [ngClass]="{'is-invalid': control.nombre.errors && control.nombre.touched}" >
+          
+            <div *ngIf="control.nombre.errors" class="invalid-feedback" style="margin-left: 17%;">
+                
+              <div *ngIf="control.nombre.errors.required">Debe digitar un valor para el nombre</div>
+  
+            </div>
+          </div>
+
+
+
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text"  id="basic-addon1">Especialidad</span>
+            </div>
+            <input type="text"  placeholder="Digite la descripción" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" class="form-control" formControlName = "descripcion" [ngClass]="{'is-invalid': control.descripcion.errors && control.descripcion.touched}">
+            
+          <div *ngIf="control.descripcion.errors" class="invalid-feedback" style="margin-left: 11%;">
+              <div *ngIf="control.descripcion.errors.required"> Debe ingresar una descripción </div>
+          </div>
+
+
+
+          </div>
+        
+     <div class="input-group mb-3" style="margin-top: 20px;" >
+
+            <div class="input-group-prepend">
+                <label class="input-group-text" for="tipo">seleccione el tipo de docente</label>
+              </div>
+            
+            <select class="custom-select" id="tipoA" name="tipo" formControlName="tipo"  [(ngModel)]="TipoDocente" class="form-control" [ngClass]="{'is-invalid': control.tipo.errors && control.tipo.touched}">
+                <option selected>Selecionar...</option>
+                <option value="Evaluador">Docente Evaluador</option>
+                <option value="Asesor">Docente Acesor de proyecto</option>
+            </select>
+
+            <div *ngIf="control.tipo.errors" class="invalid-feedback" style="margin-left: 25%;">
+                
+              <div *ngIf="control.tipo.errors.validTipo"> Debe seleccionar un tipo de docente</div>
+              
+  
+            </div>
+    
+      </div>
+
+
+
+      <div class="input-group mb-3" style="margin-top: 20px;" >
+
+        <div class="input-group-prepend">
+            <label class="input-group-text" for="tipo">seleccione  el area</label>
+          </div>
+        
+        <select class="custom-select" id="tipoArea" name="tipoArea" formControlName="area" [(ngModel)]="TipoArea" class="form-control">
+            <option selected>Selecionar...</option>
+            <option *ngFor="let item of areas" value="{{item.codigoArea}}">{{item.nombreArea}}</option>
+        </select>
+
+      </div>
+
+             
+     <div class="input-group mb-3" *ngIf="TipoDocente=='Asesor'">
+
+        <div class="input-group-prepend">
+            <label class="input-group-text" for="area">seleccione la asignatura</label>
+          </div>
+        
+        <select class="custom-select" id="areaA" name="areaAsignatura"  formControlName="asignaturas" class="form-control"  [ngClass]="{'is-invalid': control.asignaturas.errors && control.asignaturas.touched}">
+            <option selected>Selecionar...</option>
+            <option *ngFor="let item of asignaturas | filtoAsignaturaArea:TipoArea" value="{{item.codigoAsignatura}}">{{item.nombreAsignatura}}</option>
+        </select>
+
+
+        <div *ngIf="control.asignaturas.errors" class="invalid-feedback" style="margin-left: 7%;">
+                
+          <div *ngIf="control.asignaturas.errors.validAsignaturas">Debe seleccionar un valor</div>
+
+        </div>
+
+
+      </div>
+
+
+  </div>
+          <div class="text-center">
+
+            <button mat-stroked-button style="border-color: #339240; margin-right: 20px; margin-top: 20px;"  (click)="onSubmit()" [disabled]="formGroup.invalid" >Registrar</button>
+ 
+            <button mat-stroked-button style="border-color: #339240; " type="reset">Limpiar</button>
+ 
+         </div>
+             
+  </form>
+
+</div>
+

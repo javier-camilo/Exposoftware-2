@@ -1,0 +1,7 @@
+dotnet ef migrations add InitialCreate -s ../ExpoSoftware
+
+dotnet ef database update -s ../ExpoSoftware
+
+Camilo
+
+Camilo_123

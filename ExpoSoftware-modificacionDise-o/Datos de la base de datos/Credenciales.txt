@@ -1,0 +1,29 @@
+contraseña del servidor: Exposoftware2020
+
+nombre: administrador
+
+
+
+Nombre de la base de datos
+Exposoftware
+
+
+Servidor
+(nueva) server-expo
+
+
+clientExposoftware
+
+
+
+conecion:
+
+
+server-expo (administrador)
+
+
+
+  "DefaultConnection": "Server=tcp:server-expo.database.windows.net,1433;Initial Catalog=ExpoSoftware;Persist Security Info=False;User ID=administrador;Password=Exposoftware2020;MultipleActiveResultSets=True;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"
+
+
+ "DefaultConnection": "Server=localhost\\SQLEXPRESS;Database=ExpoSoftware;Trusted_Connection = True; MultipleActiveResultSets = true"

@@ -1,0 +1,45 @@
+
+      <blockquote class="blockquote text-center">
+        <p class="mb-0" class="display-3 colorLetras">Consulta De Asignaturas</p>
+      </blockquote>
+
+
+
+      <div class="col-6" style="margin-left: 20%; margin-right: 20%; margin-top: 40px; margin-bottom: 40px;" class="text-center">
+          
+        <input [(ngModel)]="searchText" type="text" class="form-control" placeholder="Texto de filtro por nombre o codigo" >
+          
+      </div>
+      
+    <hr>
+
+
+
+    <table class="table table-striped" *ngIf="asignaturas && asignaturas.length && areas">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Codigo Asignatura</th>
+          <th scope="col">Nombre Asignatura</th>
+          <th scope="col">Codigo del Area</th>
+          <th scope="col">Area de la Asignatura</th>
+          <th scope="col">Descripcion</th>
+          <th scope="col">Editar/Eliminar</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let asignatura of asignaturas | filtroAsignatura:searchText ; index as i ">
+          <th scope="row">{{ i + 1 }}</th>
+          <td>{{ asignatura.codigoAsignatura }} </td>
+          <td>{{ asignatura.nombreAsignatura }}</td>
+          <td>{{asignatura.areaAsignatura  }}</td>
+          <div *ngFor="let item of areas">
+            <td *ngIf="item.codigoArea===asignatura.areaAsignatura">{{item.nombreArea}}</td>
+          </div>
+          <td>{{ asignatura.descripcionAsignatura }}</td>
+          <td style="text-align: justify;"> <a routerLink='/asignaturaEdicion/{{asignatura.codigoAsignatura}}'>Seleccionar</a></td>
+        </tr>
+
+      </tbody>
+
+    </table>

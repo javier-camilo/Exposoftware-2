@@ -1,0 +1,43 @@
+
+      <blockquote class="blockquote text-center">
+        <p class="mb-0" class="display-3 colorLetras">Areas consulta</p>
+      </blockquote>
+
+
+      <div class="col-6" style="margin-left: 20%; margin-right: 20%; margin-top: 40px; margin-bottom: 40px;" class="text-center">
+          
+        <input [(ngModel)]="searchText" type="text" class="form-control" placeholder="Texto de filtro por nombre o codigo" >
+
+             
+      <div *ngIf="loading">
+        <img src="../../assets/Cargando.gif" height="40px" width="40px" alt="loading">
+      </div>
+
+      </div>
+ 
+    <hr>
+
+
+
+    <table class="table table-striped" *ngIf="areas && areas.length">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Codigo Area</th>
+          <th scope="col">Nombre Area</th>
+          <th scope="col">Editar/Eliminar</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <tr *ngFor="let area of areas | filtroArea:searchText ; index as i ">
+          <th scope="row">{{ i + 1 }}</th>
+          <td>{{ area.codigoArea }} </td>
+          <td>{{ area.nombreArea }}</td>
+          <td style="text-align: justify;"> <a routerLink='/areaEdicion/{{area.codigoArea}}'>Seleccionar</a></td>
+        </tr>
+      </tbody>
+
+
+    </table>

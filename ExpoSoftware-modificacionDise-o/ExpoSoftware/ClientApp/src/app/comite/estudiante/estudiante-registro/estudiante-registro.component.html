@@ -1,0 +1,126 @@
+<div class="container">
+
+    <blockquote class="blockquote text-center">
+      <p class="mb-0" class="display-3 colorLetras">Registro Estudiante</p>
+      <footer class="blockquote-footer">Guardar todo lo referente a los datos del estudiante</footer>
+    </blockquote>
+
+  
+         <form [formGroup]="formGroup">
+
+             <div class="input-group input-group-sm mb-3">
+               
+                <div class="input-group mb-3 input divflex">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="inputGroup-sizing-default">Identificacion</span>
+                    </div>
+                    <input type="text" placeholder="Digite la identificacion" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" formControlName="identificacion" [ngClass]="{ 'is-invalid': control.identificacion.errors && control.identificacion.touched }"> 
+               
+                    <div *ngIf="control.identificacion.errors" class="invalid-feedback" style="margin-left: 21%;">
+                    
+                        <div *ngIf="control.identificacion.errors.required">Debe digitar un valor para la cedula</div>
+                        <div *ngIf="control.identificacion.errors.maxlength">No se puede digitar mas de 10 caracteres</div>
+    
+                    </div>
+                    
+
+
+                <div class="input-group mb-3 input">
+
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" id="inputGroup-sizing-default">Nombre</span>
+                    </div>
+                    <input type="text" placeholder="Digite el nombre" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default"  class="form-control"  formControlName="nombre" [ngClass]="{ 'is-invalid': control.nombre.errors && control.nombre.touched }">
+                    
+                  
+                    <div *ngIf="control.nombre.errors" class="invalid-feedback" style="margin-left: 21%;">
+                      
+                      <div *ngIf="control.nombre.errors.required">Debe digitar un valor para el nombre</div>
+          
+                    </div>
+
+                </div>
+
+
+                
+            <div class="input-group mb-3 input">
+
+                <div class="input-group-prepend">
+                  <label class="input-group-text" for="asignatura">Asignaturas</label>
+                </div>
+
+                <select class="custom-select" id="asignatura" name="asignatura"  formControlName="asignatura" class="form-control" [ngClass]="{ 'is-invalid': control.asignatura.errors && control.asignatura.touched }">
+                  <option selected>seleccionar</option>
+
+                  <option *ngFor="let item of asignaturas"  value={{item.codigoAsignatura}}>{{item.nombreAsignatura}}</option>
+                
+                </select>
+
+                <div *ngIf="control.asignatura.errors" class="invalid-feedback" style="margin-left: 7%;">
+                    
+                  <div *ngIf="control.asignatura.errors.ValidaAsignatura">Debe seleccionar un valor</div>
+      
+                </div>
+
+            </div>
+
+
+            <div class="input-group mb-3 input">
+
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="inputGroup-sizing-default">Correo</span>
+                </div>
+                <input type="text" placeholder="Digite el correo" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default"  class="form-control"  formControlName="correo" [ngClass]="{ 'is-invalid': control.correo.errors && control.correo.touched }">
+                
+              
+                <div *ngIf="control.correo.errors" class="invalid-feedback" style="margin-left: 21%;">
+                  
+                  <div *ngIf="control.correo.errors.required">Debe digitar un valor para el correo</div>
+                  <div *ngIf="control.correo.errors.email">Debe digitar un correo valido</div>
+      
+                </div>
+
+            </div>
+
+            
+            <div class="input-group mb-3 input">
+
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroup-sizing-default">Celular</span>
+              </div>
+              <input type="text" placeholder="Digite el numero de celular" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default"  class="form-control"  formControlName="celular" [ngClass]="{ 'is-invalid': control.celular.errors && control.celular.touched }">
+              
+            
+              <div *ngIf="control.celular.errors" class="invalid-feedback" style="margin-left: 21%;">
+                
+                <div *ngIf="control.celular.errors.required">Debe digitar un numero de celular valido</div>
+        
+    
+              </div>
+
+          </div>
+
+
+
+            
+                   
+            </div>
+          
+            
+            <div class="text-center">
+
+                <button mat-stroked-button style="border-color: #339240; margin-right: 20px; margin-top: 20px;"  (click)="onSubmit()" [disabled]="formGroup.invalid" >Registrar</button>
+     
+                <button mat-stroked-button style="border-color: #339240; " type="reset" >Limpiar</button>
+     
+          </div>
+     
+         </div>
+       
+         </form>
+  
+
+</div>
+
+
+

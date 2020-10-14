@@ -1,0 +1,68 @@
+/* You can add global styles to this file, and also import other style files */
+
+/* Provide sufficient contrast against white background */
+a {
+  color: #0366d6;
+}
+
+code {
+  color: #e01a76;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+html, body { height: 100%; background-color: #f9f9f9; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.card{
+
+  margin-right: 25px;
+}
+
+a {
+  color: #0366d6;
+}
+
+code {
+  color: #e01a76;
+}
+
+
+.btn-secondary{
+  
+  color: #fff;
+  background-color: #339240;
+  border-color: rgb(3, 3, 3);
+  margin-left: 10px;
+
+}
+
+.sombras{
+  
+  box-shadow: 6px 10px black;
+}
+
+
+
+.colorLetras{
+  color: #339240;
+}
+
+.texto_nuevo{
+  font-size: 20px;
+
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+.input-group{
+  text-align: center;
+  width: 700px;
+  margin-left: 14%;
+  margin-right: 14%;
+}

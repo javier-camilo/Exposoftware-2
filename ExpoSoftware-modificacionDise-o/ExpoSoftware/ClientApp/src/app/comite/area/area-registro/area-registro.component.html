@@ -1,0 +1,67 @@
+<div class="container">
+    
+    <blockquote class="blockquote text-center" style="margin-bottom: 50px;">
+        <p class="mb-0" class="display-3 colorLetras">Area registro</p>
+        <footer class="blockquote-footer">Registro de las areas</footer>
+    </blockquote>
+
+
+    <form [formGroup]="formGroup">
+
+      <div class="input-group input-group-sm mb-3">
+     
+        <div class="input-group mb-3 input divflex" >
+
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="inputGroup-sizing-default">Codigo del area </span>
+            </div>
+
+            <input type="text" placeholder="Digite el codigo" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" formControlName="codigoArea" [ngClass]="{ 'is-invalid': control.codigoArea.errors && control.codigoArea.touched }" > 
+
+            <div *ngIf="control.codigoArea.errors" class="invalid-feedback">
+              
+              <div *ngIf="control.codigoArea.errors.required">Debe digitar un valor para el codigo</div>
+              <div *ngIf="control.codigoArea.errors.maxlength">No se puede digitar mas de 2 caracteres</div>
+
+            </div>
+
+        
+          </div>
+
+
+          <div class="input-group mb-3 input divflex" >
+
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="inputGroup-sizing-default">Nombre area </span>
+            </div>
+
+            <input type="text" placeholder="Digite el Nombre" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" formControlName="nombreArea" [ngClass]="{ 'is-invalid': control.nombreArea.errors && control.nombreArea.touched }" > 
+
+            <div *ngIf="control.nombreArea.errors" class="invalid-feedback">
+              
+              <div *ngIf="control.nombreArea.errors.required">Debe digitar un valor para el nombre</div>
+
+            </div>
+
+        
+          </div>
+
+       
+        </div>
+
+
+        <div class="text-center">
+
+            <button mat-stroked-button style="border-color: #339240; margin-right: 20px; margin-top: 20px; margin-bottom: 40px;"  (click)="onSubmit()" [disabled]="formGroup.invalid" >Registrar</button>
+
+            <button mat-stroked-button style="border-color: #339240; " type="reset" >Limpiar</button>
+
+         </div>
+
+        
+
+    </form>
+
+
+</div>
+

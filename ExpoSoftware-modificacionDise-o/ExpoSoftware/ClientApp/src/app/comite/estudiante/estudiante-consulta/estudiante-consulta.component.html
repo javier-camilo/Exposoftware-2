@@ -1,0 +1,48 @@
+
+      <blockquote class="blockquote text-center">
+        <p class="mb-0" class="display-3 colorLetras">Consulta de estudiantes</p>
+      </blockquote>
+
+
+
+      <div class="col-6" style="margin-left: 20%; margin-right: 20%; margin-top: 40px; margin-bottom: 40px;" class="text-center">
+          
+        <input [(ngModel)]="searchText" type="text" class="form-control" placeholder="Texto de filtro por nombre o identificacion" >
+          
+      </div>
+      
+    <hr>
+
+
+
+    <table class="table table-striped" *ngIf="estudiantes && estudiantes.length && asignaturas">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Identificacion</th>
+          <th scope="col">Nombre</th>
+          <th scope="col">Correo</th>
+          <th scope="col">asignatura</th>
+          <th scope="col">Celular</th>
+          <th scope="col">Editar/Eliminar</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let estudiante of estudiantes | filtroEstudiante:searchText ; index as i ">
+          <th scope="row">{{ i + 1 }}</th>
+          <td>{{ estudiante.identificacion }} </td>
+          <td>{{ estudiante.nombre }}</td>
+          <td>{{ estudiante.correo  }}</td>
+          
+          <div *ngFor="let item of asignaturas">
+            <td *ngIf="item.codigoAsignatura===estudiante.asignatura">{{item.nombreAsignatura}}</td>
+          </div>
+          <td>{{ estudiante.celular }}</td>
+          <td>{{ estudiante.correo }}</td>
+          <td style="text-align: justify;"> <a routerLink='/estudianteEdicion/{{estudiante.idEstudiante}}'>Seleccionar</a></td>
+        </tr>
+
+      </tbody>
+
+    </table>
+

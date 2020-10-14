@@ -1,0 +1,49 @@
+<div class="container">
+
+    <blockquote class="blockquote text-center">
+        <p class="mb-0" class="display-3 colorLetras">LOGIN</p>
+        <footer class="blockquote-footer">Usuario/Email y contraseña para continuar</footer>
+    </blockquote>
+
+    <form [formGroup]="loginGroup">
+        
+        <div class="text-center" style="margin-left: 200px;" > 
+            <div class="input-group mb-3 input divflex"  >
+                <div>
+                    <span class="input-group-text" id="inputGroup-sizing-default">Usuario</span>
+                </div>
+                <input type="text" placeholder="Usuario" class="form-control" aria-label="Sizing example input" style="margin-right: 45%;"  aria-describedby="inputGroup-sizing-default" formControlName="userName" [ngClass]="{ 'is-invalid': control.userName.errors && control.userName.touched }"> 
+                <div *ngIf="control.userName.errors" class="invalid-feedback" style="margin-right: 50%;">
+                    
+                    <div *ngIf="control.userName.errors.required">Ingrese su usuario o correo</div>
+                    
+
+                </div>
+            </div>
+
+            <div class="input-group mb-3 input divflex" >
+                <div>
+                    <span class="input-group-text" id="inputGroup-sizing-default">Contraseña</span>
+                </div>
+                <input type="password" placeholder="Contraseña" class="form-control" style="margin-right: 45%;"  aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" formControlName="password" [ngClass]="{ 'is-invalid': control.password.errors && control.password.touched }"> 
+                <div *ngIf="control.password.errors" class="invalid-feedback" style="margin-right: 50%;">
+                    
+                    <div *ngIf="control.password.errors.required">Ingrese su contraseña</div>
+                    
+
+                </div>
+            </div>
+
+       
+        </div>
+
+        <div class="text-center">
+
+            <button mat-stroked-button style="border-color: #339240;margin-left: 20px; margin-right: 20px; margin-top: 20px;"  (click)="onSubmit()" [disabled]="loginGroup.invalid" >Iniciar sesion</button>
+ 
+            <button mat-stroked-button style="border-color: #339240; " type="reset" >Limpiar</button>
+      </div>
+
+    </form>
+
+</div>

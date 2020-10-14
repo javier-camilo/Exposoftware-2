@@ -1,0 +1,50 @@
+<div class="container">
+    
+    <blockquote class="blockquote text-center">
+        <p class="mb-0" class="display-3 colorLetras">Area Edición</p>
+        <footer class="blockquote-footer">Registro de las areas</footer>
+    </blockquote>
+
+
+    <form>
+
+      <div class="input-group input-group-sm mb-3">
+     
+        <div class="input-group mb-3 input divflex" style="margin-left: 50%; margin-top: 30px;">
+
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="inputGroup-sizing-default">{{area.codigoArea}}</span>
+            </div>
+
+         
+          </div>
+
+
+          <div class="input-group mb-3 input divflex" >
+
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="inputGroup-sizing-default">Nombre area </span>
+            </div>
+
+            <input type="text" name="nombre" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" [(ngModel)]="area.nombreArea" > 
+
+        
+          </div>
+
+       
+        </div>
+
+
+        <div class="text-center">
+
+            <button mat-stroked-button style="border-color: #339240; margin-right: 20px; margin-top: 20px; margin-bottom: 40px;"  (click)="onSubmit('1')" >Actualizar</button>
+
+            <button mat-stroked-button style="border-color: #339240; " (click)="onSubmit('2')" >Eliminar</button>
+
+         </div>
+
+
+    </form>
+
+
+</div>
