@@ -70,6 +70,30 @@ export class RubricaService {
   }
 
 
+  getId(id: string, llamadoOperacion?:string): Observable<Rubrica> {
+    const url = `${this.baseUrl + 'api/Rubrica/GetRubricaArea'}/${id}`;
+    return this.http.get<Rubrica>(url, httpOptions)
+      .pipe(
+
+        tap(_ => 
+
+          {
+
+            if(llamadoOperacion==null){
+              
+              this.handleErrorService.log('se consulto la rubrica = ' + id)
+
+            }
+
+          }
+          
+          ),
+        catchError(this.handleErrorService.handleError<Rubrica>('Buscar Rubrica', null))
+      );
+  }
+
+
+
   delete(rubrica:string): Observable<string> {
     const id = rubrica;
     return this.http.delete(this.baseUrl + 'api/Rubrica/'+ id, {responseType: 'text'} )

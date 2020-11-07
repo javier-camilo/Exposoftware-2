@@ -35,7 +35,7 @@ export class ConsultaSolicitudesComponent implements OnInit {
 
   }
 
-  displayedColumns: string[] = ['Referencia', 'Titulo', 'Resumen', 'Estado', 'Pendon'];
+  displayedColumns: string[] = ['Referencia', 'Titulo', 'Resumen', 'Estado', 'Pendon', 'Evaluacion' ];
 
 
   comprobar(comprobar:string):boolean{

@@ -153,7 +153,7 @@ namespace ExpoSoftware.Controllers
 
         // DELETE: api/ProyectoEvaluado/5
         [HttpDelete("{id}")]
-        public async Task<ActionResult<ProyectoEvaluado>> DeleteProyectoEvaluado(int id)
+        public async Task<ActionResult<ProyectoEvaluado>> DeleteProyectoEvaluado(string id)
         {
             var proyectoEvaluado = await _context.ProyectosEvaluados.FindAsync(id);
             if (proyectoEvaluado == null)
@@ -171,5 +171,34 @@ namespace ExpoSoftware.Controllers
         {
             return _context.ProyectosEvaluados.Any(e => e.Id == id);
         }
+
+
+        [HttpDelete]
+        [Route("PosPreguntas/{idProyecto}")] 
+        public async Task<ActionResult<string>> BorrarProyectos(string id)
+        {
+            var proyectoEvaluado =  _context.ProyectosEvaluados.ToList();
+
+            if (proyectoEvaluado == null)
+            {
+                return NotFound();
+            }
+
+            foreach (var item in proyectoEvaluado)
+            {
+                if(item.IdProyecto==id){
+
+                    var proyecto = _context.ProyectosEvaluados.Find(item.Id);
+                    
+                    _context.ProyectosEvaluados.Remove(proyecto);
+                }
+                
+            }
+
+            await _context.SaveChangesAsync();
+
+            return "termino operacion";
+        }
+
     }
 }

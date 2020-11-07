@@ -19,7 +19,7 @@ export class ProyectosBusquedaComponent implements OnInit {
   idRubrica:string;
   idArea:string;
 
-  displayedColumns: string[] = ['idProyecto', 'titulo', 'resumen','metodologia'];
+  displayedColumns: string[] = ['idProyecto', 'titulo', 'resumen','metodologia','Evaluar'];
   
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
 

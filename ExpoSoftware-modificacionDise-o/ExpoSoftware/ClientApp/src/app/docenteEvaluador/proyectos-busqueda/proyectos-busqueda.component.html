@@ -27,9 +27,6 @@
         </mat-select>
 
         </mat-form-field>
-
-        
-        <a  routerLink="/registrarEvaluacion/123/{{idArea}}">ver</a>
             
 
 </div>
@@ -62,6 +59,15 @@
       <th mat-header-cell *matHeaderCellDef>metodologia usada</th>
       <td mat-cell *matCellDef="let element"> {{element.metodologia}} </td>
     </ng-container>
+
+    
+    <ng-container matColumnDef="Evaluar">
+      <th mat-header-cell *matHeaderCellDef>Evaluar Proyecto</th>
+      <td mat-cell *matCellDef="let element"> 
+        <a  routerLink="/registrarEvaluacion/{{element.idProyecto}}/{{idArea}}">ver</a>
+      </td>
+    </ng-container>
+
 
 
 

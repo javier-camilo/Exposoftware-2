@@ -11,11 +11,9 @@
     <div class="col-sm-4" >
 
 
-        <p class="p-2 bg-dark text-white">Id: {{codArea}}    <br><br>  Area: {{area.nombreArea}}</p>
+        <p class="p-2 bg-dark text-white">Id: {{area.codigoArea}}    <br><br>  Area: {{area.nombreArea}}</p>
 
         <p class="p-2 bg-light text-dark" > Proyecto: {{idPoryecto}}   <br><br>  Nombre: {{proyecto.titulo}}</p>
-
-        <button mat-raised-button style="margin-left:  40px;" (click)="registrarPreguntas()">Registrar Evaluacion</button>
 
     </div>
 
@@ -40,7 +38,7 @@
                     <th scope="row">{{ i + 1 }}</th>
                     <td>{{ pregunta.pregunta }} </td>
                     <td>
-                        <input type="number" [(ngModel)]="pregunta.valor">
+                        {{pregunta.valor}}
                     </td>
                 </tr>
 

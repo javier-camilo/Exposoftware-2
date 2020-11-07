@@ -14,7 +14,6 @@ namespace ExpoSoftware.Controllers
 
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize]
     public class AreaController : ControllerBase
     {
 

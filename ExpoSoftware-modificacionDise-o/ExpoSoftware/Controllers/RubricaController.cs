@@ -14,6 +14,7 @@ namespace ExpoSoftware.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    
     public class RubricaController : ControllerBase
     {
         private readonly ExpoSoftwareContext _context;
