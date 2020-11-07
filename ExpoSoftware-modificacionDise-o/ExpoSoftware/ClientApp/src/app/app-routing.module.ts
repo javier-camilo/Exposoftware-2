@@ -146,11 +146,13 @@ const routes: Routes = [
     },
     {
       path:"proyectosBusqueda",
-      component: ProyectosBusquedaComponent
+      component: ProyectosBusquedaComponent,
+      canActivate: [EvaluadorGuard]
     },
     {
       path:"registrarEvaluacion/:refProyecto/:codigoArea",
-      component: RegistrarEvaluacionComponent
+      component: RegistrarEvaluacionComponent,
+      canActivate: [EvaluadorGuard]
     },
     {
       path:"consultarEvaluacion/:refProyecto",
